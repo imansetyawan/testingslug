@@ -26,7 +26,7 @@
                             </span>
                             <a href="{{ route('get_artikel_author', ['id' => $artikel->user_id])}}">
                             <span
-                                    class="social-share-title pull-left text-capitalize">{{$artikel->user->name}} 
+                                    class="social-share-title pull-left text-capitalize" style="margin-left: 79%;">{{$artikel->user->name}} 
                             </span>
                             </a>
                         </div>
