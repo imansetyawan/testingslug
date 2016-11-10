@@ -75,5 +75,5 @@ Route::get('/blog/author/{id}', 'BlogController@getAuthor')->name('get_artikel_a
 Route::get('/blog/kategori/{slug}', 'BlogController@getKategori')->name('get_kategori_artikel');
 
 Route::get('/error', function(){
-	return view('errors.error404');
+	return view('errors.404');
 });
