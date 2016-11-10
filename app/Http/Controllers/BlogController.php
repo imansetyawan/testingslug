@@ -84,7 +84,7 @@ class BlogController extends Controller
         Mail::........
     }*/
 
-    public function cari(request $request)
+    public function search(request $request)
     {
         $field = $request->get('search');
         $hasil = Artikel::where('judulartikel', 'LIKE', '%' . $field . '%')->paginate(5);

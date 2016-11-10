@@ -5,7 +5,9 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
-                    @if (count($hasil))
+                    @if (count($hasil) == 0)
+                        <p>Artikel Tidak Ditemukan</p>
+                    @else
                     @foreach ($hasil as $data)
                     <div class="col-md-6">
                         <article class="post post-grid">
@@ -27,14 +29,12 @@
                         </article>
                     </div>
                       @endforeach
+                      @endif
                 </div>
                 <ul class="pagination">
                     {{ $hasil->render() }}
                 </ul>
             </div>
-            @else
-               <div class="card-panel red darken-3 white-text">Oops.. Data Tidak Ditemukan</div>
-            @endif
             <div class="col-md-4" data-sticky_column>
                 <div class="primary-sidebar">
                     @include('blog.indexkategoriblog')

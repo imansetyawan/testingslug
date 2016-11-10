@@ -70,7 +70,7 @@ Route::get('/blog/contact', 'BlogController@getContact')->name('get_blog_contact
 Route::post('/blog/contact', 'BlogController@postContact')->name('post_blog_contact');
 Route::get('/blog', 'BlogController@index')->name('get_blog');
 Route::get('/artikel/{slug}', 'BlogController@show')->name('single_artikel');
-Route::get('/blog/seacrh', 'BlogController@cari')->name('get_blog_seacrh');
+Route::get('/blog/seacrh', 'BlogController@search')->name('get_blog_seacrh');
 Route::get('/blog/author/{name}', 'BlogController@getAuthor')->name('get_artikel_author');
 Route::get('/blog/kategori/{slug}', 'BlogController@getKategori')->name('get_kategori_artikel');
 

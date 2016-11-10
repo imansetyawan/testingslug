@@ -28,16 +28,6 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li class="menu-item-has-children"><a data-toggle="dropdown" class="dropdown-toggle" href="#">portfolio
-                        <i class="fa fa-angle-down"></i></a>
-                        <ul class="sub-menu">
-                            <li><a href="single-portfolio.html">Single Portfolio</a></li>
-                            <li><a href="portfolio-2.html">portfolio 2 columns</a></li>
-                            <li><a href="portfolio-3.html">portfolio 3 columns</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">TRAVEL</a></li>
-                    <li><a href="#">ABOUT ME </a></li>
                     <li><a href="{{ route('get_blog_contact') }}">CONTACT</a></li>
                 </ul>
                 <div class="i_con" style="margin-right: 13%;">
@@ -51,7 +41,7 @@
                     <div class="top-search">
                         <form  method="GET" action="{{route('get_blog_seacrh')}}">
                             <div>
-                            <input type="text" placeholder="Search and hit enter..." name="cari"  style="margin-top: 16px; margin-left: 91%;">
+                            <input type="text" placeholder="Search and hit enter..." name="search"  style="margin-top: 16px; margin-left: 91%;">
                             </div>
                         </form>
                     </div>
