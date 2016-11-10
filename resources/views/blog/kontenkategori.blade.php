@@ -6,6 +6,9 @@
             <div class="col-md-8">
 
                 <div class="row">
+                    @if (count($artikel) == 0)
+                        <p>Artikel Kosong</p>
+                    @else
                     @foreach ($artikel as $row)
                     <div class="col-md-6">
                         
@@ -28,6 +31,7 @@
                         </article>
                     </div>
                       @endforeach
+                      @endif
                 </div>
                 <ul class="pagination">
                     <li></li>
