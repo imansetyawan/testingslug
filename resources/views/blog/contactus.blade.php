@@ -48,154 +48,53 @@
             </div>
             <div class="col-md-4" data-sticky_column>
                 <div class="primary-sidebar">
-                    <aside class="widget border pos-padding">
-                        <h3 class="widget-title text-uppercase text-center">Categories</h3>
-                        <ul>
-                            <li>
-                                <a href="">Food & Drinks</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="">Travel</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="">Business</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="">Story</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="">DIY & Tips</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                            <li>
-                                <a href="">Lifestyle</a>
-                                <span class="post-count pull-right"> (2)</span>
-                            </li>
-                        </ul>
-                    </aside>
+                    @include('blog.indexkategoriblog')
                     <aside class="widget news-letter">
                         <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
 
-                        <form action="#">
-                            <input type="email" placeholder="Your email address">
+                        <form method="post" action="{{route('post_insert_subscriber')}}">
+                            <input type="email" name="email" placeholder="Your email address">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <input type="submit" value="Subscribe Now"
                                    class="text-uppercase text-center btn btn-subscribe">
                         </form>
 
                     </aside>
-                    <aside class="widget">
+                   <aside class="widget">
                         <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
-
+                        @foreach ($mostpop as $mostpop)
                         <div class="popular-post">
-
-
-                            <a href="#" class="popular-img"><img src="assets/images/p1.jpg" alt="">
-
+                            <a href="#" class="popular-img"><img width="298" height="191" src="{{asset('image/thumb_'.$mostpop->image)}}" alt="">
                                 <div class="p-overlay"></div>
                             </a>
-
                             <div class="p-content">
-                                <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                <span class="p-date">February 15, 2016</span>
-
+                                <a href="{{ route('single_artikel', ['slug' => $mostpop->slug])  }}" class="text-uppercase">{{$mostpop->judulartikel}}</a>
+                               <span><i class="fa fa-eye"></i> {{$mostpop->pageview}}</span>
                             </div>
                         </div>
-                        <div class="popular-post">
-
-                            <a href="#" class="popular-img"><img src="assets/images/p1.jpg" alt="">
-
-                                <div class="p-overlay"></div>
-                            </a>
-
-                            <div class="p-content">
-                                <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                <span class="p-date">February 15, 2016</span>
-                            </div>
-                        </div>
-                        <div class="popular-post">
-
-
-                            <a href="#" class="popular-img"><img src="assets/images/p1.jpg" alt="">
-
-                                <div class="p-overlay"></div>
-                            </a>
-
-                            <div class="p-content">
-                                <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                <span class="p-date">February 15, 2016</span>
-                            </div>
-                        </div>
+                        @endforeach
                     </aside>
+                        
                     <aside class="widget pos-padding">
                         <h3 class="widget-title text-uppercase text-center">Recent Posts</h3>
 
+                        @foreach ($recents as $recent)
                         <div class="thumb-latest-posts">
-
-
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="assets/images/r-p.jpg" alt="">
+                                    <a href="#" class="popular-img"><img width="107" height="76" src="{{asset('image/thumb_'.$recent->image)}}" alt="">
 
                                         <div class="p-overlay"></div>
                                     </a>
                                 </div>
                                 <div class="p-content">
-                                    <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                    <span class="p-date">February 15, 2016</span>
+                                    <a href="{{ route('single_artikel', ['slug' => $recent->slug])  }}" class="text-uppercase">{{$recent->judulartikel}}</a>
+                                    <span class="p-date">{{ date('d F Y', strtotime($recent->created_at))}}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="thumb-latest-posts">
-
-
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="assets/images/r-p.jpg" alt="">
-
-                                        <div class="p-overlay"></div>
-                                    </a>
-                                </div>
-                                <div class="p-content">
-                                    <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                    <span class="p-date">February 15, 2016</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="thumb-latest-posts">
-
-
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="assets/images/r-p.jpg" alt="">
-
-                                        <div class="p-overlay"></div>
-                                    </a>
-                                </div>
-                                <div class="p-content">
-                                    <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                    <span class="p-date">February 15, 2016</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="thumb-latest-posts">
-
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="assets/images/r-p.jpg" alt="">
-
-                                        <div class="p-overlay"></div>
-                                    </a>
-                                </div>
-                                <div class="p-content">
-                                    <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                    <span class="p-date">February 15, 2016</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
                     </aside>
                 </div>
             </div>

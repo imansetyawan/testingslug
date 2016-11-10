@@ -101,10 +101,10 @@
                     <div class="custom-post">
                         @foreach($randoms as $random)
                         <div>
-                            <a href="/laravel/public/blog/{{$random->slug}}"><img width="295" height="190" src="{{asset('image/thumb_'.$random->image)}}" alt=""></a>
+                            <a href="{{ route('single_artikel', ['slug' => $random->slug])  }}"><img width="295" height="190" src="{{asset('image/thumb_'.$random->image)}}" alt=""></a>
                         </div>
                         <div>
-                            <a href="/laravel/public/blog/{{$random->slug}}" class="text-uppercase">{{$random->judulartikel}}</a>
+                            <a href="{{ route('single_artikel', ['slug' => $random->slug])  }}" class="text-uppercase">{{$random->judulartikel}}</a>
                             <span class="p-date">{{ date('d F Y', strtotime($random->created_at))}}</span>
                         </div>
                         @endforeach

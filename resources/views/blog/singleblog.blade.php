@@ -6,11 +6,11 @@
             <div class="col-md-8">
                 <article class="post">
                     <div class="post-thumb">
-                        <a href="blog.html"><img width="745" height="470" src="{{asset('image/'.$artikel->image)}}" alt=""></a>
+                        <a href="{{route('single_artikel', ['slug' => $artikel->slug])}}"><img width="745" height="470" src="{{asset('image/'.$artikel->image)}}" alt=""></a>
                     </div>
                     <div class="post-content">
                         <header class="entry-header text-center text-uppercase">
-                            <h4><a href="{{ route('get_kategori_artikel', ['id' => $artikel->kategori_id])}}"> {{$artikel->kategori->namakategori}}</a></h4>
+                            <h4><a href="{{ route('get_kategori_artikel', ['slug' => $artikel->kategori->slug])}}"> {{$artikel->kategori->namakategori}}</a></h4>
 
                             
                             <h1 class="entry-title"><a href="{{route('single_artikel', ['slug' => $artikel->slug])}}">{{$artikel->judulartikel}}</a></h1>
@@ -24,7 +24,7 @@
 							<span
                                     class="social-share-title pull-left text-capitalize">{{ date('d F Y', strtotime($artikel->created_at))}}
                             </span>
-                            <a href="{{ route('get_artikel_author', ['id' => $artikel->user_id])}}">
+                            <a href="{{ route('get_artikel_author', ['name' => $artikel->user->name])}}">
                             <span
                                     class="social-share-title pull-left text-capitalize" style="margin-left: 79%;">{{$artikel->user->name}} 
                             </span>
@@ -91,7 +91,7 @@
                             <div class="about-me-content text-center">
                                 <img width="180" height="180" src="{{asset('image/'.$artikel->user->avatar)}}" alt="" class="img-me">
 
-                                <a href="{{ url('blog/author/'.$artikel->user_id)}}"><h3 class="text-uppercase">{{$artikel->user->namalengkap}}</h3></a>
+                                <a href="{{ route('get_artikel_author', ['name' => $artikel->user->name])}}"><h3 class="text-uppercase">{{$artikel->user->namalengkap}}</h3></a>
 
                                 <p>{!!$artikel->user->deskripsi!!}</p>
                             </div>

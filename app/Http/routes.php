@@ -71,8 +71,8 @@ Route::post('/blog/contact', 'BlogController@postContact')->name('post_blog_cont
 Route::get('/blog', 'BlogController@index')->name('get_blog');
 Route::get('/artikel/{slug}', 'BlogController@show')->name('single_artikel');
 Route::get('app/blog/seacrh', 'BlogController@search');
-Route::get('/blog/author/{id}', 'BlogController@getAuthor')->name('get_artikel_author');
-Route::get('/blog/kategori/{id}', 'BlogController@getKategori')->name('get_kategori_artikel');
+Route::get('/blog/author/{name}', 'BlogController@getAuthor')->name('get_artikel_author');
+Route::get('/blog/kategori/{slug}', 'BlogController@getKategori')->name('get_kategori_artikel');
 
 Route::get('/error', function(){
 	return view('errors.404');
