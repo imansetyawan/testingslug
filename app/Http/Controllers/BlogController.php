@@ -129,7 +129,7 @@ class BlogController extends Controller
 
         Mail::send('blog.message',$this->data, function($m) {
             $m->from(Input::get('email'), 'Message Blog');
-            $m->to('imansetyawan33@gmail.com')
+            $m->to('blogmagang@gmail.com')
                 ->subject(Input::get('subject'));
         });
 
