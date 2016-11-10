@@ -22,11 +22,11 @@
                         <div class="social-share">
                             
 							<span
-                                    class="social-share-title pull-left text-capitalize">{{ date('d F Y', strtotime($artikel->created_at))}}
+                                    class="social-share-title pull-left text-capitalize" style="margin-left: 82%;">{{ date('d F Y', strtotime($artikel->created_at))}}
                             </span>
                             <a href="{{ route('get_artikel_author', ['name' => $artikel->user->name])}}">
                             <span
-                                    class="social-share-title pull-left text-capitalize" style="margin-left: 79%;">{{$artikel->user->name}} 
+                                    class="social-share-title pull-left text-capitalize" style="margin-left: 82%;">{{$artikel->user->name}} 
                             </span>
                             </a>
                         </div>
