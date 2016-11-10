@@ -40,7 +40,7 @@
                     <li><a href="#">ABOUT ME </a></li>
                     <li><a href="{{ route('get_blog_contact') }}">CONTACT</a></li>
                 </ul>
-                <div class="i_con">
+                <div class="i_con" style="margin-right: 13%;">
                     <a href="#"><i class="active fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-facebook"></i></a>
                     <a href="#"><i class="fa fa-linkedin"></i></a>
@@ -49,7 +49,11 @@
                     <a href="#"><i class="fa fa-heart"></i></a>
 
                     <div class="top-search">
-                        <a href="#"><i class="fa fa-search"></i></a>
+                        <form role="search" method="get" id="searchform" action="#">
+                            <div>
+                            <input type="text" placeholder="Search and hit enter..." name="s" id="s" style="margin-top: 16px; margin-left: 91%;">
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -57,13 +61,13 @@
             <!-- /.navbar-collapse -->
 
 
-            <div class="show-search">
+            <!-- <div class="show-search">
                 <form role="search" method="get" id="searchform" action="#">
                     <div>
-                        <input type="text" placeholder="Search and hit enter..." name="s" id="s">
+                       <input type="text" placeholder="Search and hit enter..." name="s" id="s" style="margin-top: 16px; margin-left: 91%;">
                     </div>
                 </form>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- /.container-fluid -->
