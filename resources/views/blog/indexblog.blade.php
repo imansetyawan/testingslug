@@ -18,7 +18,7 @@
                             </div>
                             <div class="post-content">
                                 <header class="entry-header text-center text-uppercase">
-                                    <h6><a href="{{ route('get_kategori_artikel', ['id' => $artikel->kategori_id])}}"> {{$artikel->kategori->namakategori}}</a></h6>
+                                    <h6><a href="{{ route('get_kategori_artikel', ['slug' => $artikel->kategori->slug])}}"> {{$artikel->kategori->namakategori}}</a></h6>
 
                                     <h1 class="entry-title"><a href="{{route('single_artikel', ['slug' => $artikel->slug])}}">{{$artikel->judulartikel}}</a></h1>
                                 </header>
@@ -60,45 +60,7 @@
                         </div>
                         @endforeach
                     </aside>
-                    <aside class="widget">
-                        <h3 class="widget-title text-uppercase text-center">Featured Posts</h3>
-
-                        <div id="widget-feature" class="owl-carousel">
-                            <div class="item">
-                                <div class="feature-content">
-                                    <img src="assets/images/p1.jpg" alt="">
-
-                                    <a href="#" class="overlay-text text-center">
-                                        <h5 class="text-uppercase">Home is peaceful</h5>
-
-                                        <p>Lorem ipsum dolor sit ametsetetur sadipscing elitr, sed </p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="feature-content">
-                                    <img src="assets/images/p2.jpg" alt="">
-
-                                    <a href="#" class="overlay-text text-center">
-                                        <h5 class="text-uppercase">Home is peaceful</h5>
-
-                                        <p>Lorem ipsum dolor sit ametsetetur sadipscing elitr, sed </p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="feature-content">
-                                    <img src="assets/images/p3.jpg" alt="">
-
-                                    <a href="#" class="overlay-text text-center">
-                                        <h5 class="text-uppercase">Home is peaceful</h5>
-
-                                        <p>Lorem ipsum dolor sit ametsetetur sadipscing elitr, sed </p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
+                    
                     <aside class="widget pos-padding">
                         <h3 class="widget-title text-uppercase text-center">Recent Posts</h3>
 

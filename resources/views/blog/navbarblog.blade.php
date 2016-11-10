@@ -24,7 +24,7 @@
                         <i class="fa fa-angle-down"></i></a>
                         <ul class="sub-menu">
                             @foreach($kategoris as $kategori)
-                            <li><a href="{{ route('get_kategori_artikel', ['id' => $kategori->id])}}">{{$kategori->namakategori}}</a></li>
+                            <li><a href="{{ route('get_kategori_artikel', ['slug' => $kategori->slug])}}">{{$kategori->namakategori}}</a></li>
                             @endforeach
                         </ul>
                     </li>

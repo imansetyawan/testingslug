@@ -91,9 +91,9 @@ class BlogController extends Controller
         return view('artikel.indexblog')->with('hasil', $hasil);
     }
 
-    public function getAuthor($id)
+    public function getAuthor($name)
     {
-        $this->data['user'] = User::find($id);
+        $this->data['user'] = User::where('name', $name)->first();
         return view ('blog.artikeluser', $this->data);
     }
 
@@ -104,8 +104,12 @@ class BlogController extends Controller
         return view ('blog.kontenkategori', $this->data);
     }
 
+    public function getContact()
+    {
+        return view ('blog.contactus', $this->data);
+    }
 
-    public function postKontak(Request $request)
+    public function postContact(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -120,7 +124,10 @@ class BlogController extends Controller
         $message->subject = $request->subject;
         $message->message = $request->pesan;
 
-        Mail::send('blog.message',['message' => $message], function($m) {
+        $this->data['pesan'] = $message->message;
+        $this->data['email'] = $message->email;
+
+        Mail::send('blog.message',$this->data, function($m) {
             $m->from(Input::get('email'), 'Message Blog');
             $m->to('imansetyawan33@gmail.com')
                 ->subject(Input::get('subject'));
@@ -130,13 +137,6 @@ class BlogController extends Controller
         return redirect('/blog');
     }
 
-    public function getContact()
-    {
-        $infos = Info::all();
-        $randoms = Artikel::orderByRaw('RAND()')->take(1)->get();
-        $kategoris = Kategori::all();
-        return view ('blog.contactus', ['kategoris' => $kategoris, 'randoms'=>$randoms, 'infos'=> $infos]);
-    }
-
+    
 }
 

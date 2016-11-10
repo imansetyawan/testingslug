@@ -19,7 +19,7 @@
                             </div>
                             <div class="post-content">
                                 <header class="entry-header text-center text-uppercase">
-                                    <h6><a href="{{ route('get_kategori_artikel', ['id' => $artikel->kategori_id])}}"> {{$artikel->kategori->namakategori}}</a></h6>
+                                    <h6><a href="{{ route('get_kategori_artikel', ['slug' => $artikel->kategori->slug])}}"> {{$artikel->kategori->namakategori}}</a></h6>
 
                                     <h1 class="entry-title"><a href="{{route('single_artikel', ['slug' => $artikel->slug])}}">{{$artikel->judulartikel}}</a></h1>
                                 </header>
@@ -40,7 +40,7 @@
                             <center><h1>Author</h1></center>
                             <div class="about-me-content text-center">
                                 <img width="180" height="180" src="{{asset('image/'.$artikel->user->avatar)}}" alt="" class="img-me">
-                                <a href="{{ route('get_artikel_author', ['id' => $artikel->user_id])}}">
+                                <a href="{{ route('get_artikel_author', ['name' => $artikel->user->name])}}">
                                 <h3 class="text-uppercase">{{$artikel->user->namalengkap}}</h3>
                                 </a>
                                 <p>{!!$artikel->user->deskripsi!!}</p>

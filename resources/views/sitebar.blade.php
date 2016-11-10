@@ -30,14 +30,7 @@
             <span> Subscriber</span>
           </a>
         </li>
-
-        <li class="treeview">
-          <a href="{{action('IndukController@index')}}">
-            <i class="fa fa-pie-chart"></i>
-            <span> Induk Kategori</span>
-          </a>
-        </li> 
-
+        
         <li class="">
           <a href="{{ route('index_kategori') }}">
             <i class="fa fa-files-o"></i> <span> Kategori</span>

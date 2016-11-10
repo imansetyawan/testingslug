@@ -6,7 +6,10 @@
     <body>
         <h2></h2>
         <div>
-            halo
+            <b>Email</b> : {{$email}}
+            <br>
+            <b>Pesan</b> : {{$pesan}}
+
         </div>
     </body>
 </html>
