@@ -26,7 +26,7 @@
                             </span>
                             <a href="{{ route('get_artikel_author', ['name' => $artikel->user->name])}}">
                             <span
-                                    class="social-share-title pull-left text-capitalize" style="position: absolute; margin-left: -12.5%; padding-top: 15px;>{{$artikel->user->name}} 
+                                    class="social-share-title pull-left text-capitalize" style="position: absolute; margin-left: -12.5%; padding-top: 15px;"">{{$artikel->user->name}} 
                             </span>
                             </a>
                         </div>
