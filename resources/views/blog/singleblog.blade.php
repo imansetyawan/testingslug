@@ -91,7 +91,7 @@
                             <div class="about-me-content text-center">
                                 <img width="180" height="180" src="{{asset('image/'.$artikel->user->avatar)}}" alt="" class="img-me">
 
-                                <a href="{{ url('blog/author/'.$artikel->user_id)}}"><h3 class="text-uppercase">{{$artikel->user->namalengkap}}</h3></a>
+                                <a href="{{ route('get_artikel_author', ['id' => $artikel->user_id])}}"><h3 class="text-uppercase">{{$artikel->user->namalengkap}}</h3></a>
 
                                 <p>{!!$artikel->user->deskripsi!!}</p>
                             </div>

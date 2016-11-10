@@ -100,7 +100,7 @@ class BlogController extends Controller
     public function getKategori($slug)
     {   
         $this->data['slug'] = Kategori::where('slug', $slug)->first();
-        $this->data['artikel'] = Artikel::where('kategori_id', ['$slug->kategori_id'])->paginate(8);
+        $this->data['artikel'] = Artikel::where('kategori_id', $this->data['slug']->id)->paginate(8);
         return view ('blog.kontenkategori', $this->data);
     }
 
