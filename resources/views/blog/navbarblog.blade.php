@@ -49,9 +49,9 @@
                     <a href="#"><i class="fa fa-heart"></i></a>
 
                     <div class="top-search">
-                        <form role="search" method="get" id="searchform" action="#">
+                        <form  method="GET" action="{{route('get_blog_seacrh')}}">
                             <div>
-                            <input type="text" placeholder="Search and hit enter..." name="s" id="s" style="margin-top: 16px; margin-left: 91%;">
+                            <input type="text" placeholder="Search and hit enter..." name="cari"  style="margin-top: 16px; margin-left: 91%;">
                             </div>
                         </form>
                     </div>

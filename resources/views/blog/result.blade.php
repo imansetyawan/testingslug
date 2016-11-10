@@ -5,22 +5,22 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
-                    @foreach ($artikels as $artikel)
+                    @if (count($hasil))
+                    @foreach ($hasil as $data)
                     <div class="col-md-6">
-                        
                         <article class="post post-grid">
                             <div class="post-thumb">
-                                <a href="{{ route('single_artikel', ['slug' => $artikel->slug])  }}"><img src="{{asset('image/thumb_'.$artikel->image)}}" alt=""></a>
+                                <a href="{{ route('single_artikel', ['slug' => $data->slug])  }}"><img src="{{asset('image/thumb_'.$data->image)}}" alt=""></a>
 
-                                <a href="{{ route('single_artikel', ['slug' => $artikel->slug])  }}" class="post-thumb-overlay text-center">
+                                <a href="{{ route('single_artikel', ['slug' => $data->slug])  }}" class="post-thumb-overlay text-center">
                                     <div class="text-uppercase text-center">View Post</div>
                                 </a>
                             </div>
                             <div class="post-content">
                                 <header class="entry-header text-center text-uppercase">
-                                    <h6><a href="{{ route('get_kategori_artikel', ['slug' => $artikel->kategori->slug])}}"> {{$artikel->kategori->namakategori}}</a></h6>
+                                    <h6><a href="{{ route('get_kategori_artikel', ['slug' => $data->kategori->slug])}}"> {{$data->kategori->namakategori}}</a></h6>
 
-                                    <h1 class="entry-title"><a href="{{route('single_artikel', ['slug' => $artikel->slug])}}">{{$artikel->judulartikel}}</a></h1>
+                                    <h1 class="entry-title"><a href="{{route('single_artikel', ['slug' => $data->slug])}}">{{$data->judulartikel}}</a></h1>
                                 </header>
                                 
                             </div>
@@ -28,11 +28,13 @@
                     </div>
                       @endforeach
                 </div>
-
                 <ul class="pagination">
-                    <li>{!!$artikels->links()!!}</li>
+                    {{ $hasil->render() }}
                 </ul>
             </div>
+            @else
+               <div class="card-panel red darken-3 white-text">Oops.. Data Tidak Ditemukan</div>
+            @endif
             <div class="col-md-4" data-sticky_column>
                 <div class="primary-sidebar">
                     @include('blog.indexkategoriblog')

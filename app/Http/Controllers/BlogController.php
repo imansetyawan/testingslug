@@ -84,11 +84,11 @@ class BlogController extends Controller
         Mail::........
     }*/
 
-    public function seacrh(request $request)
+    public function cari(request $request)
     {
-        $cari = $request->get('search');
-        $hasil = Artikel::where('judulartikel', 'LIKE', '%' . $cari . '%')->paginate(5);
-        return view('artikel.indexblog')->with('hasil', $hasil);
+        $field = $request->get('search');
+        $hasil = Artikel::where('judulartikel', 'LIKE', '%' . $field . '%')->paginate(5);
+        return view('blog.result', $this->data, ['hasil' => $hasil, 'field' => $field]);
     }
 
     public function getAuthor($name)
