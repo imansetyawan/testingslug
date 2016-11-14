@@ -22,9 +22,14 @@ class ArtikelController extends Controller
     
     public function index()
     {
-
-       $artikels = Artikel::orderBy('created_at', 'DESC')->where('user_id', '=', Auth::user()->id)->paginate(10); 
-       return view('artikel.artikel', ['artikels' => $artikels]);
+        if(Auth::user()->roles_id == 2) {
+            $artikels = Artikel::orderBy('created_at', 'DESC')->paginate(10); 
+            return view('artikel.artikel', ['artikels' => $artikels]);
+        }
+        else {
+            $artikels = Artikel::orderBy('created_at', 'DESC')->where('user_id', '=', Auth::user()->id)->paginate(10); 
+            return view('artikel.artikel', ['artikels' => $artikels]);
+        }
     }
 
     public function create()
