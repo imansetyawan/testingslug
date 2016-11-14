@@ -45,7 +45,20 @@ body {
     font-family: 'Open Sans', sans-serif;
     background: #F4F4F4;
 }
-
+.col-md-8 .row p{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    padding-left: 50px;
+    margin-top: 40px;
+    color: #fff;
+    background-color: #f4645f;
+    font-size: 16px;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    font-family: 'Merriweather', serif;
+}
 span, p, input {
     font-family: 'Merriweather', serif;
     line-height: 26px;
@@ -103,6 +116,7 @@ header
     display: block;
     margin-right: 45px;
     padding: 0 0;
+    width: 68%;
 }
 
 .icon-right {

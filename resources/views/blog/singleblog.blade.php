@@ -72,7 +72,7 @@
                             <a href="{{route('single_artikel', ['slug' => $relatedartikel->slug])}}">
                                 <img width="217" height="160" src="{{asset('image/thumb_'.$relatedartikel->image)}}" alt="">
 
-                                <p>{{$relatedartikel->judulartikel}}</p>
+                                <p>{!!str_limit($relatedartikel->judulartikel, 40)!!}</p>
                             </a>
                              @endforeach
                         </div>
