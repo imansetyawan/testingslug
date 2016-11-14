@@ -10,6 +10,7 @@
             <i class="fa fa-dashboard"></i> <span> Home</span>
           </a>
         </li>
+        @if(Auth::user()->roles_id == 2)
         <li class="">
           <a href="{{action('InfoController@index')}}">
             <i class="fa fa-info"></i> 
@@ -36,7 +37,7 @@
             <i class="fa fa-files-o"></i> <span> Kategori</span>
           </a>
         </li>
-        
+        @endif
         <li>
           <a href="{{ route('index_artikel') }}">
             <i class="fa fa-th"></i> <span> Artikel</span>
@@ -49,7 +50,7 @@
             <span> Profil</span>
           </a>
         </li> 
-               
+         
         
       </ul>
     </section>

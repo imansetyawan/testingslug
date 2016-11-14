@@ -62,8 +62,13 @@ Route::get('/', 'UserController@getLogin');
 Route::post('/login', 'UserController@postLogin')->name('post_login');
 Route::get('/register', 'UserController@getRegister')->name('register');
 Route::post('/register', 'UserController@postRegister')->name('post_register');
-Route::get('/ForgotPassword', 'UserController@getForgot');
+Route::get('/password/email', 'Auth\PasswordController@getEmail')->name('get_forgot_pass');
+Route::post('/password/email', 'Auth\PasswordController@postEmail')->name('post_forgot_pass');
+Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset')->name('get_reset_pass');
+Route::post('/password/reset', 'Auth\PasswordController@postReset')->name('post_reset_pass');
 Route::get('/register/verify/{confirmationCode}', 'UserController@confirm');
+Route::get('auth/facebook', 'UserController@redirectToProvider')->name('get_auth_facebook');
+Route::get('auth/facebook/callback', 'UserController@handleProviderCallback')->name('get_facebook_callback');
 });
 
 Route::get('/blog/contact', 'BlogController@getContact')->name('get_blog_contact');
