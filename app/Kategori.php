@@ -21,4 +21,8 @@ class Kategori extends Model implements SluggableInterface
     public function indukkategori() {
     	return $this->belongsTo('App\IndukKategori');
     }
+
+    public function induk() {
+        return $this->belongsTo(static::class);
+    }
 }
