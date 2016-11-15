@@ -7,7 +7,7 @@
 
                 <div class="row">
                     @if (count($artikel) == 0)
-                        <p>Artikel Kosong</p>
+                        <p>Data belum ada</p>
                     @else
                     @foreach ($artikel as $row)
                     <div class="col-md-6">
