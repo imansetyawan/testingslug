@@ -69,6 +69,8 @@ Route::post('/password/reset', 'Auth\PasswordController@postReset')->name('post_
 Route::get('/register/verify/{confirmationCode}', 'UserController@confirm');
 Route::get('auth/facebook', 'UserController@redirectToProvider')->name('get_auth_facebook');
 Route::get('auth/facebook/callback', 'UserController@handleProviderCallback')->name('get_facebook_callback');
+Route::get('auth/google', 'UserController@redirectToProviderGoogle')->name('get_auth_google');
+Route::get('auth/google/callback', 'UserController@handleProviderCallbackGoogle')->name('get_google_callback');
 });
 
 Route::get('/blog/contact', 'BlogController@getContact')->name('get_blog_contact');

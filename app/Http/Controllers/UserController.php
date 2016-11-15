@@ -264,6 +264,23 @@ class UserController extends Controller
             ]);
 
         }
+
+    public function redirectToProviderGoogle()
+        {
+            return Socialite::driver('google')->redirect();
+        }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallbackGoogle()
+        {
+            $user = Socialite::driver('google')->user();
+            dd($user);
+            
+        }
 }
 
 

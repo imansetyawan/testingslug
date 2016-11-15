@@ -41,4 +41,10 @@ return [
         'redirect' => env('CALLBACK_URL'),
      ],
 
+     'google' => [
+        'client_id' => '585649264039-4i8b96uvuglm1ve8qp1l5s0f5dbf7foe.apps.googleusercontent.com',
+        'client_secret' => 'ST3a1Rz7cjTbPOaQqNt-nCb9',
+        'redirect' => 'http://localhost/testingslug/public/auth/callback/google',
+    ],
+
 ];
