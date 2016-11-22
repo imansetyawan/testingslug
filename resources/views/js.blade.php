@@ -68,7 +68,7 @@ $(document).on('click', '.btn-danger', function(e) {
                         swal("Deleted!","Category and all sub categories deleted", "success");
                         setTimeout(function() {
                             self.parents("#myform").submit();
-                        }, 300);
+                        }, 1000);
                     }
                     else{
                         swal("cancelled","Your categories are safe", "error");

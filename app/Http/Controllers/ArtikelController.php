@@ -67,7 +67,7 @@ class ArtikelController extends Controller
         $artikels->user_id = Auth::user()->id;
     }
         $artikels->save();
-        return redirect('app/artikel')->with('messageinsert','Artikel sudah berhasil ditambahkan');
+        return redirect()->route('index_artikel')->with('messageinsert','Artikel sudah berhasil ditambahkan');
     
 
     }
@@ -103,13 +103,13 @@ class ArtikelController extends Controller
         $artikels->kategori_id = $request->kategori_id;
         $artikels->deskripsi = $request->deskripsi;
         $artikels->save();
-        return redirect('app/artikel')->with('messageupdate','Artikel sudah berhasil diupdate');
+        return redirect()->route('index_artikel')->with('messageupdate','Artikel sudah berhasil diupdate');
     }
 
     public function destroy($id)
     {
         $artikel = Artikel::findOrFail($id)->delete();
-        return redirect('app/artikel')->with('messagedelete','Artikel sudah berhasil dihapus');
+        return redirect()->route('index_artikel')->with('messagedelete','Artikel sudah berhasil dihapus');
     }
 
 }

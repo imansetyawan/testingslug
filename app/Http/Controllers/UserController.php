@@ -62,7 +62,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->roles_id = $request->roles_id;
         $user->save();
-        return redirect('app/user')->with('messageinsert','User sudah berhasil ditambahkan');
+        return redirect()->route('index_user')->with('messageinsert','User sudah berhasil ditambahkan');
     }
 
     /**
@@ -110,7 +110,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->roles_id = $request->roles_id;
         $user->save();
-        return redirect('app/user')->with('messageupdate','User sudah berhasil diubah');
+        return redirect()->route('index_user')->with('messageupdate','User sudah berhasil diubah');
     }
 
     /**
@@ -123,7 +123,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect('app/user')->with('messagedelete','User sudah berhasil dihapus');
+        return redirect()->route('index_user')->with('messagedelete','User sudah berhasil dihapus');
     }
 
     public function getLogin(){
@@ -141,12 +141,12 @@ class UserController extends Controller
             'password' => $request->input('password'),
             'confirmed' => 1]))
         {
-        return redirect('/app/home');
+        return redirect()->route('admin_home');
         }
         
         else 
         {
-            return redirect('/login')->with('messageerror','Login is Failed Check again Email or your Password');
+            return redirect()->route('login')->with('messageerror','Login is Failed Check again Email or your Password');
         }
         
 
@@ -184,7 +184,7 @@ class UserController extends Controller
                 ->subject('Konfirmasi alamat email anda');
         });
         $user->save();
-        return redirect('/login')->with('messagesuccessregist','Please verify your account in email');
+        return redirect()->route('login')->with('messagesuccessregist','Please verify your account in email');
     }
 
     public function confirm($confirmation_code)
@@ -203,7 +203,7 @@ class UserController extends Controller
         $user->confirmed = 1;
         $user->confirmation_code = null;
         $user->save();
-        return redirect('/login')->with('messageinsert','Register is Succesfull');
+        return redirect()->route('login')->with('messageinsert','Register is Succesfull');
     }
 
     public function getProfile(){

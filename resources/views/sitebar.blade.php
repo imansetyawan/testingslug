@@ -31,6 +31,13 @@
             <span> Subscriber</span>
           </a>
         </li>
+
+        <li class="treeview">
+          <a href="{{ route('index_message') }}">
+            <i class="fa fa-envelope"></i>
+            <span> Message</span>
+          </a>
+        </li>
         
         <li class="">
           <a href="{{ route('index_kategori') }}">

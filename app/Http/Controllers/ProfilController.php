@@ -107,7 +107,7 @@ class ProfilController extends Controller
         $users->deskripsi = $request->deskripsi;
     
         $users->save();
-        return redirect('app/user/profile');
+        return redirect()->route('index_profil');
     }
 
     public function destroy($id)

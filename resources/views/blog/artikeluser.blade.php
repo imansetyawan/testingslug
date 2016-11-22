@@ -60,8 +60,9 @@
                     <aside class="widget news-letter">
                         <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
 
-                        <form action="#">
-                            <input type="email" placeholder="Your email address">
+                        <form method="post" action="{{route('post_insert_subscriber')}}">
+                            <input type="email" name="email" placeholder="Your email address">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <input type="submit" value="Subscribe Now"
                                    class="text-uppercase text-center btn btn-subscribe">
                         </form>

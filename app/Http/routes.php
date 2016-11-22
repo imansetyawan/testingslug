@@ -51,6 +51,13 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::put('app/subscriber/edit/{id}', 'subscriberController@update')->name('post_update_subscriber');
 	Route::delete('app/subscriber/delete/{id}', 'subscriberController@destroy')->name('get_delete_subscriber');
 
+	Route::get('app/message', 'messageController@index')->name('index_message');
+	Route::get('app/message/insert', 'messageController@create')->name('get_insert_message');
+	Route::post('app/message/insert', 'messageController@store')->name('post_insert_message');
+	Route::get('app/message/edit/{id}', 'messageController@edit')->name('get_update_message');
+	Route::put('app/message/edit/{id}', 'messageController@update')->name('post_update_message');
+	Route::delete('app/message/delete/{id}', 'messageController@destroy')->name('get_delete_message');
+
 	Route::get('app/user/profile', 'profilController@index')->name('index_profil');
 	Route::get('app/user/profile/edit/{id}', 'profilController@edit')->name('get_update_profil');
 	Route::put('app/user/profile/edit/{id}', 'profilController@update')->name('post_update_profil');	
@@ -58,7 +65,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 Route::group(['middleware' => 'guest'], function(){
 Route::get('/login', 'UserController@getLogin')->name('login');
-Route::get('/', 'UserController@getLogin');
+Route::get('/', 'BlogController@index')->name('get_blog');
 Route::post('/login', 'UserController@postLogin')->name('post_login');
 Route::get('/register', 'UserController@getRegister')->name('register');
 Route::post('/register', 'UserController@postRegister')->name('post_register');

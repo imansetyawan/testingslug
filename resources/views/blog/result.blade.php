@@ -38,7 +38,7 @@
             <div class="col-md-4" data-sticky_column>
                 <div class="primary-sidebar">
                     @include('blog.indexkategoriblog')
-                    <aside class="widget news-letter">
+                   <aside class="widget news-letter">
                         <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
 
                         <form method="post" action="{{route('post_insert_subscriber')}}">

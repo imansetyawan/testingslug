@@ -1,18 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Subscriber;
 
-class SubscriberController extends Controller
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+
+use App\Message;
+
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function __construct()
     {
         $this->middleware('rule:admin');
@@ -20,8 +22,8 @@ class SubscriberController extends Controller
     
     public function index()
     {
-        $subs = Subscriber::all();
-        return view('subs.subs', ['subs'=>$subs] );
+        $messages = Message::paginate(10);
+        return view('message.message', ['messages' => $messages]);
     }
 
     /**
@@ -31,8 +33,7 @@ class SubscriberController extends Controller
      */
     public function create()
     {
-        $subs = Subscriber::all();
-        return view('subs.insertsubs', ['subs' => $subs]);
+        //
     }
 
     /**
@@ -43,14 +44,7 @@ class SubscriberController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required',
-            ]);
-
-        $message = new Subscriber;
-        $message->email = $request->email;
-        $message->save();
-        return redirect()->route('index_blog');
+        //
     }
 
     /**
@@ -72,8 +66,7 @@ class SubscriberController extends Controller
      */
     public function edit($id)
     {
-        $subs = Subscriber::find($id);
-        return view('subs.editsubs', ['subs'=>$subs] );
+       
     }
 
     /**
@@ -85,14 +78,8 @@ class SubscriberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'email' => 'required',
-            ]);
-
-        $subs = Subscriber::find($id);
-        $subs->email = $request->email;
-        $subs->save();
-        return redirect()->route('index_subscriber');
+    
+    
     }
 
     /**
@@ -103,8 +90,8 @@ class SubscriberController extends Controller
      */
     public function destroy($id)
     {
-        $subs = Subscriber::find($id);
-        $subs->delete();
-        return redirect()->route('index_subscriber');
+        $message = Message::find($id);
+        $message->delete();
+        return redirect()->route('index_message');
     }
 }
