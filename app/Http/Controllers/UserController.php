@@ -220,61 +220,39 @@ class UserController extends Controller
             return Socialite::driver('facebook')->redirect();
         }
 
-    public function handleProviderCallback()
-
+     public function handleProviderCallback()
+    {
+        // 1 check if the user exists in our database with facebook_id
+        // 2 if not create a new user
+        // 3 login this user into our application
+        try
         {
-            try {
-                $user = Socialite::driver('facebook')->user();
-            }
-
-            catch (Exception $e) {
-                return redirect('auth/facebook');
-            }
-
-            $authUser = $this->findOrCreateUser($user);
-            Auth::login($authUser, true);
-            return Redirect::to()->route('admin_home');
-
+            $socialUser = Socialite::driver('facebook')->user();
         }
-
-    private function findOrCreateUser($facebookUser)
-
+        catch (\Exception $e)
         {
-            $authUser = User::where('facebook_id', $facebookUser->id)->first();
-            if ($authUser){
-
-                return $authUser;
-            }
-            if($facebookUser->getEmail())
-            {
-
-              $email = $facebookUser->getEmail();
-            } 
-            else 
-            {
-
-              $email = $facebookUser->getId() . '@facebook.com';
-            }
-            $username = $facebookUser->getId() . str_random(5);
-            return User::create([
-                'name' => $facebookUser->getName(),
-                'email' => $email,
-                'facebook_id' => $facebookUser->id,
-                'avatar' => $facebookUser->getAvatar()
+            return redirect('/');
+        }
+        $user = User::where('facebook_id',$socialUser->getId())->first();
+        if(!$user)
+            User::create([
+               'facebook_id' => $socialUser->getId(),
+                'name' => $socialUser->getName(),
+                'email' => $socialUser->getEmail(),
             ]);
+        auth()->login($user);
+        return redirect()->route('admin_home');
+        return $user->getEmail();
+        
+    }
 
-        }
 
     public function redirectToProviderGoogle()
         {
             return Socialite::driver('google')->redirect();
         }
 
-    /**
-     * Obtain the user information from GitHub.
-     *
-     * @return Response
-     */
+  
     public function handleProviderCallbackGoogle()
         {
             $user = Socialite::driver('google')->user();

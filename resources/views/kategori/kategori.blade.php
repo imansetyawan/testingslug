@@ -41,18 +41,18 @@
                 </tr>
                 @foreach($kategori as $kategori)
                 <tr>
-                  <td>{{$kategori->id}}</td>
-                  <td>{{$kategori->namakategori}}</td>
-                  <td>{{$kategori->indukkategori_id}}</td>
-                  <td><a href="{{ route('get_update_kategori', ['id' => $kategori->id]) }}"><button style="margin-right: 9px; padding-bottom: 0px; padding-top: 0px;" type="submit" class="btn btn-primary">Edit</button></a>
-                  	  
-                      <form id="myform" style="margin-left: 53px; margin-top: -23px;" class="" action="{{ route('get_delete_kategori', ['id' => $kategori->id]) }}" method="post">
-                      <input type ="hidden" name="_method" value="delete">
-                      <input type="hidden" name="_token" value="{{csrf_token()}}">
-                      <button style="padding-top: 0px; padding-bottom: 0px;" type="submit" value="delete" class="btn btn-danger">Delete</button>
-                      </form>
-                  </td>
-                  
+                <td>{{$kategori->id}}</td>
+                <td>{{$kategori->namakategori}}</td>
+                <td>{{ isset($kategori->indukkategori->namakategori) ? $kategori->indukkategori->namakategori : '' }}</td>
+                <td><a href="{{ route('get_update_kategori', ['id' => $kategori->id]) }}"><button style="margin-right: 9px; padding-bottom: 0px; padding-top: 0px;" type="submit" class="btn btn-primary">Edit</button></a>
+
+                <form id="myform" style="margin-left: 53px; margin-top: -23px;" class="" action="{{ route('get_delete_kategori', ['id' => $kategori->id]) }}" method="post">
+                <input type ="hidden" name="_method" value="delete">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <button style="padding-top: 0px; padding-bottom: 0px;" type="submit" value="delete" class="btn btn-danger">Delete</button>
+                </form>
+                </td>
+
                 </tr>
                 @endforeach
               </table>

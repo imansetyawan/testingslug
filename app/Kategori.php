@@ -17,8 +17,9 @@ class Kategori extends Model implements SluggableInterface
     public function artikel() {
     	return $this->hasMany('App\Artikel');
     }
+    
+   public function indukkategori() {
+        return $this->belongsTo('App\Kategori', 'indukkategori_id');
 
-    public function indukkategori() {
-    	return $this->belongsTo('App\IndukKategori');
     }
 }
