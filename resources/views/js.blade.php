@@ -61,7 +61,8 @@ $(document).on('click', '.btn-danger', function(e) {
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "Yes, delete it!",
-                    closeOnConfirm: true
+                    closeOnConfirm: false,
+                    closeOnCancel: false
                 },
                 function(isConfirm){
                     if(isConfirm){
