@@ -76,5 +76,9 @@ $(document).on('click', '.btn-danger', function(e) {
                     }
                 });
     });
+
+$('button.insert-message').click(function(e) {
+    swal("Here's a message!", "It's pretty, isn't it?");
+}
 </script>
 
