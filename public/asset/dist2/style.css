@@ -45,6 +45,18 @@ body {
     font-family: 'Open Sans', sans-serif;
     background: #ffffff;
 }
+nav ul.navbarfull {
+    list-style: none;
+    letter-spacing: 2px;
+    text-align: center;
+}
+nav ul.navbarfull li a{
+    padding-right: 25px; 
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+    font-style: arial;
+}
 .col-md-8 .row p{
     width: 100%;
     height: auto;
