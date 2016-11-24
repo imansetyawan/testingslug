@@ -3,8 +3,8 @@
 <div class="main-content">
     <div class="container">
         <div class="row">
+                   
             <div class="col-md-8">
-
                 <div class="leave-comment mr0"><!--leave comment-->
                     <!-- <div id="googleMap" style="width:100%; height:380px; margin-bottom: 40px"></div> -->
                     <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus aliquam deserunt esse
@@ -14,32 +14,47 @@
                     <h3 class="text-uppercase">Send massage</h3>
                     <br>
 
-                    <form class="form-horizontal contact-form" role="form" method="post" action="{{ route('post_blog_contact') }}">
+                    <form  class="form-horizontal contact-form" role="form" method="post" action="{{ route('post_blog_contact') }}">
                         <div class="form-group">
                             <div class="col-md-12">
+                                <div class="email {{ $errors->has('name') ? 'has-error' : ''}}">
                                 <input type="text" class="form-control" name="name"
                                        placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="email" class="form-control" name="email"
-                                       placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" name="subject"
-                                       placeholder="Subject">
+                                {{($errors->has('name')) ? $errors->first('name') : ''}}
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12">
-                                        <textarea class="form-control" rows="6" name="pesan"
-                                                  placeholder="Message" required></textarea>
+                                <div class="email {{ $errors->has('email') ? 'has-error' : ''}}">
+                                <input type="email" class="form-control" name="email"
+                                       placeholder="Email">
+                                {{($errors->has('email')) ? $errors->first('email') : ''}}
+                            </div>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="subject {{ $errors->has('subject') ? 'has-error' : ''}}">
+                                <input type="text" class="form-control" name="subject"
+                                       placeholder="Subject">
+                                {{($errors->has('subject')) ? $errors->first('subject') : ''}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="pesan {{ $errors->has('pesan') ? 'has-error' : ''}}">
+                                        <textarea class="form-control" rows="6" name="pesan"
+                                                  placeholder="Message" required></textarea>
+                                {{($errors->has('pesan')) ? $errors->first('pesan') : ''}}
+                                </div>
+                            </div>
+                        </div>
+
                          <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <button type="submit" name="submit" class="btn send-btn">send massage</button>
 
@@ -101,4 +116,5 @@
         </div>
     </div>
 </div>
+
 @include ('blog.footerblog')

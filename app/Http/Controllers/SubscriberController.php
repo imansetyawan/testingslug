@@ -50,7 +50,7 @@ class SubscriberController extends Controller
         $message = new Subscriber;
         $message->email = $request->email;
         $message->save();
-        return redirect()->route('index_blog');
+        return redirect()->route('get_blog');
     }
 
     /**

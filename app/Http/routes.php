@@ -45,8 +45,6 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::delete('app/artikel/delete/{id}', 'ArtikelController@destroy')->name('get_delete_artikel');
 
 	Route::get('app/subscriber', 'subscriberController@index')->name('index_subscriber');
-	Route::get('app/subscriber/insert', 'subscriberController@create')->name('get_insert_subscriber');
-	Route::post('app/subscriber/insert', 'subscriberController@store')->name('post_insert_subscriber');
 	Route::get('app/subscriber/edit/{id}', 'subscriberController@edit')->name('get_update_subscriber');
 	Route::put('app/subscriber/edit/{id}', 'subscriberController@update')->name('post_update_subscriber');
 	Route::delete('app/subscriber/delete/{id}', 'subscriberController@destroy')->name('get_delete_subscriber');
@@ -87,6 +85,8 @@ Route::get('/artikel/{slug}', 'BlogController@show')->name('single_artikel');
 Route::get('/blog/seacrh', 'BlogController@search')->name('get_blog_seacrh');
 Route::get('/blog/author/{name}', 'BlogController@getAuthor')->name('get_artikel_author');
 Route::get('/blog/kategori/{slug}', 'BlogController@getKategori')->name('get_kategori_artikel');
+Route::get('app/subscriber/insert', 'subscriberController@create')->name('get_insert_subscriber');
+Route::post('app/subscriber/insert', 'subscriberController@store')->name('post_insert_subscriber');
 
 Route::get('/error', function(){
 	return view('errors.404');

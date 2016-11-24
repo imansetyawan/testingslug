@@ -84,9 +84,9 @@ class ArtikelController extends Controller
 
     public function edit($id)
     {
-        $artikel = Artikel::find($id);
+        $artikels = Artikel::find($id);
         $kategoris = Kategori::all();
-        return view('artikel.editartikel', ['kategoris' => $kategoris, 'artikel' => $artikel]);
+        return view('artikel.editartikel', ['kategoris' => $kategoris, 'artikels' => $artikels]);
         
     }
 
