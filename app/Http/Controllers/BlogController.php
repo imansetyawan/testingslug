@@ -23,7 +23,7 @@ class BlogController extends Controller
         $this->data['randoms'] = Artikel::orderByRaw('RAND()')->take(1)->get();
         $this->data['recents'] = Artikel::orderBy('created_at', 'DESC')->take(4)->get();
         $this->data['mostpop'] = Artikel::orderBy('pageview', 'DESC')->take(4)->get();
-        $this->data['kategoris'] = Kategori::withCount('artikel')->get();
+        $this->data['kategoris'] = Kategori::withCount('artikel')->where('indukkategori_id', '=', 'namakategori')->get();
     }
 
     /**
