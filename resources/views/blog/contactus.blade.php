@@ -31,7 +31,7 @@
                                 <input type="email" class="form-control" name="email"
                                        placeholder="Email">
                                 {{($errors->has('email')) ? $errors->first('email') : ''}}
-                                </div>
+                            </div>
                             </div>
                         </div>
 
@@ -117,16 +117,4 @@
     </div>
 </div>
 
-<script>
-$(document).on('click', '.btn-danger', function(e) {
-        e.preventDefault();
-        var self = $(this);
-        swal("Here's a message!", "It's pretty, isn't it?");
-        setTimeout(function() {
-                            self.parents("#form").submit();
-                        }, 1000);
-                
-    });
-
-</script>
 @include ('blog.footerblog')

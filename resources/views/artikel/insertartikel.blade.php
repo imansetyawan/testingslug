@@ -41,7 +41,7 @@
             <!-- /.box-body -->
             <div class="box-footer">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <button type="submit" value="post" name="name" class="btn btn-primary">Submit</button>
+                <button type="submit" value="post" class="btn btn-primary">Submit</button>
             </div>
           </form>
           </div>
