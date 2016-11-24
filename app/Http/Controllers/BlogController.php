@@ -87,7 +87,8 @@ class BlogController extends Controller
     public function search(request $request)
     {
         $field = $request->get('search');
-        $hasil = Artikel::whereRaw("MATCH(judulartikel) AGAINST (? IN BOOLEAN MODE)", [$field])->paginate(5);
+        $hasil = Artikel::whereRaw("MATCH(judulartikel) AGAINST (? IN BOOLEAN MODE)", [$field])->
+        orWhere('judulartikel', 'LIKE', '%' . $field . '%')->paginate(5);
         return view('blog.result', $this->data, ['hasil' => $hasil, 'field' => $field]);
     }
 
