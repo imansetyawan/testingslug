@@ -23,7 +23,7 @@ class BlogController extends Controller
         $this->data['randoms'] = Artikel::orderByRaw('RAND()')->take(1)->get();
         $this->data['recents'] = Artikel::orderBy('created_at', 'DESC')->take(4)->get();
         $this->data['mostpop'] = Artikel::orderBy('pageview', 'DESC')->take(4)->get();
-        $this->data['kategoris'] = Kategori::withCount('artikel')->get();
+        $this->data['kategoris'] = Kategori::withCount('artikel')->where('indukkategori_id', '=', 'namakategori')->get();
     }
 
     /**
@@ -87,7 +87,8 @@ class BlogController extends Controller
     public function search(request $request)
     {
         $field = $request->get('search');
-        $hasil = Artikel::where('judulartikel', 'LIKE', '%' . $field . '%')->paginate(5);
+        $hasil = Artikel::whereRaw("MATCH(judulartikel) AGAINST (? IN BOOLEAN MODE)", [$field])->
+        orWhere('judulartikel', 'LIKE', '%' . $field . '%')->paginate(5);
         return view('blog.result', $this->data, ['hasil' => $hasil, 'field' => $field]);
     }
 
