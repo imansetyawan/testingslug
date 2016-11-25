@@ -27,7 +27,8 @@
                 </select>
                 {{($errors->has('kategori_id')) ? $errors->first('kategori_id') : ''}}
                 </div>
-                <label for="image">Images</label>
+
+              <label for="image">Images</label>
                 <input type="file" name="gambar">
               </div>
 

@@ -19,6 +19,7 @@
             <div class="box-body">
               <label>Nama</label>
               <input class="form-control" name="judulartikel" value="{{$artikel->judulartikel}}" type="text" placeholder="Nama Artikel" value="{{ Request::old('judulartikel') }}">
+              
               <label>Kategori</label>
                <select class="form-control select2" style="width: 100%;" name="kategori_id" value="{{$artikel->kategori_id}}">
                @foreach($kategoris as $value)       
