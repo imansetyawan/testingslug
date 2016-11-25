@@ -29,7 +29,7 @@
                   <td>{{$info->id}}</td>
                   <td>{{$info->alamat}}</td>
                   <td>{{$info->telp}}</td>
-                  <td>{{$info->email}}</td>
+                  <td>{{$info->Email}}</td>
                   <td><a href="{{ url('app/info/' . $info->id . '/edit') }}"><button style="margin-right: 9px; padding-bottom: 0px; padding-top: 0px;" type="submit" class="btn btn-primary">Edit</button></a>
                   	  
                       <form id="myform" style="margin-left: 53px; margin-top: -23px;" class="" action="{{ url('app/info/' . $info->id) }}" method="post">

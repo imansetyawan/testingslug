@@ -1,4 +1,4 @@
-<footer class="footer-widget-section">
+<footer class="footer-widget-section navbar-fixed-bottom">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -10,7 +10,7 @@
                         @foreach ($infos as $info)
                         <i class="fa fa-home"></i><span> {{$info->alamat}}</span><br>
                         <i class="fa fa-phone"></i><span> {{$info->telp}}</span><br>
-                        <i class="fa fa-envelope"></i><span> {{$info->email}}</span><br>
+                        <i class="fa fa-envelope"></i><span> {{$info->Email}}</span><br>
                         @endforeach
                     </div>
                 </aside>

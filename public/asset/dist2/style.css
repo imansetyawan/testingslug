@@ -43,19 +43,30 @@ Table of contents
 --------------------------------------*/
 body {
     font-family: 'Open Sans', sans-serif;
-    background: #ffffff;
+    background: #FFFAF0;
 }
 nav ul.navbarfull {
     list-style: none;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-align: center;
 }
 nav ul.navbarfull li a{
     padding-right: 25px; 
-    margin-bottom: 10px;
-    margin-top: 15px;
+    margin-bottom: 12px;
     font-size: 14px;
     font-style: arial;
+    background: #e7e7e7;
+    color: #000;
+    border-radius: 30px;
+    padding-left: 11px;
+    padding-right: 11px;
+    padding-bottom: 2px;
+}
+nav ul.navbarfull li a:hover {
+    color: #fff;
+    text-shadow: 0 0 3px #456897, 0 0 5px #00FFFF;
+    text-decoration: none;
+
 }
 .col-md-8 .row p{
     width: 100%;
@@ -114,13 +125,15 @@ ul {
 header
 ---------------------*/
 .main-menu.navbar-default {
-    background-color: #f4f4f4;
+    background-color: #708090;
     border-color: #e5e5e5;
     border-radius: 0;
+    margin-left: -1px;
+    border: 0px;
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: #777;
+    color: #fff;
     line-height: 36px;
 }
 
@@ -141,6 +154,7 @@ header
 
 .nav > li > a:first-child {
     padding-left: 0;
+    font-size: initial;
 }
 
 .main-menu.navbar-default .navbar-collapse, .navbar-default {
@@ -157,7 +171,7 @@ header
 .i_con a i {
     font-size: 14px;
     padding: 15px 4px;
-    color: #AAAAAA;
+    color: #e7e7e7;
     line-height: 35px;
 }
 
@@ -312,7 +326,12 @@ header
 post css
  ===================*/
 .main-content {
-    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 100px;
+    margin-bottom: 535px;
+    background-color: #FFFAF0;
+    padding-top: 50px;
 }
 
 article {
@@ -873,8 +892,10 @@ footer instragram
 }
 
 .footer-widget-section {
+    /*position: fixed;*/
     color: #fff;
-    background: #333333;
+    background: #414b4f;
+    z-index: -1;
 
 }
 
@@ -1048,7 +1069,7 @@ athuor
 }
 
 .footer-copy {
-    background: #222222;
+    background: #708090;
     padding: 15px 0;
     color: #e2e2e2;
     line-height: 30px;
