@@ -27,8 +27,13 @@
                 </select>
                 {{($errors->has('kategori_id')) ? $errors->first('kategori_id') : ''}}
                 </div>
+                <div class="up">
                 <label for="image">Images</label>
-                <input type="file" name="gambar">
+                <br>
+                <img id="blah" src="" alt="" style=" position: relative; margin-bottom: 1%; margin-top: 1%; ">
+                <input type="file" name="gambar" id="imgInp">
+                
+                </div>
               </div>
 
               <div class="box-body pad">
