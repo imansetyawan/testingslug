@@ -1,5 +1,5 @@
 <body>
-<nav class="navbar main-menu navbar-default">
+<nav class="navbar main-menu navbar-default navbar-fixed-top">
     <div class="container">
         <div class="menu-content">
             <div class="navbar-header">

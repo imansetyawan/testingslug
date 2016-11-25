@@ -56,7 +56,7 @@
                         </div>
 
                          <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <button id="sww" type="submit" name="submit" class="btn send-btn">send massage</button>
+                        <button type="submit" name="submit" class="btn send-btn">send massage</button>
 
                     </form>
                 </div><!--end leave comment-->
