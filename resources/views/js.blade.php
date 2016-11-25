@@ -77,6 +77,7 @@ $(document).on('click', '.btn-danger', function(e) {
                 });
     });
 
+
 </script>
 <script type="text/javascript">
     function readURL(input) {
@@ -98,4 +99,5 @@ $("#imgInp").change(function(){
     readURL(this);
 });
 </script>
+
 

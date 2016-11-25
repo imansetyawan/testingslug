@@ -17,12 +17,12 @@
             </div>
 
             <div class="col-md-4">
-                <aside class="footer-widget">
+               <!--  <aside class="footer-widget">
                     <h3 class="widget-title text-uppercase">Testimonials</h3>
 
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
                         <!--Indicator-->
-                        <ol class="carousel-indicators">
+                        <!-- <ol class="carousel-indicators">
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                             <li data-target="#myCarousel" data-slide-to="1"></li>
                             <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -88,7 +88,7 @@
                         </div>
                     </div>
 
-                </aside>
+                </aside> -->
             </div>
             <div class="col-md-4">
                 <aside class="footer-widget">

@@ -119,7 +119,7 @@
                     </aside>
                     @include('blog.indexkategoriblog')
                     
-                    <aside class="widget">
+                    <!-- <aside class="widget">
                         <h3 class="widget-title text-uppercase text-center">Featured Posts</h3>
                         <div id="widget-feature" class="owl-carousel">
                             <div class="item">
@@ -156,7 +156,7 @@
                                 </div>
                             </div>
                         </div>
-                    </aside>
+                    </aside> -->
                     <aside class="widget pos-padding">
                         <h3 class="widget-title text-uppercase text-center">Recent Posts</h3>
 
