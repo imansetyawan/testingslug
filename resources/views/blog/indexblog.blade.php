@@ -40,10 +40,17 @@
                         <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
 
                         <form method="post" action="{{route('post_insert_subscriber')}}">
-                            <input type="email" name="email" placeholder="Your email address">
+
+                                <div class="form-group">
+                                    <div class="email {{ $errors->has('email') ? 'has-error' : ''}}">
+                                    <input type="email" class="form-control" name="email" placeholder="Your email address">
+                                    {{($errors->has('email')) ? $errors->first('email') : ''}}
+                                    </div>
+                                </div>
+
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
-                            <input type="submit" value="Subscribe Now"
-                                   class="text-uppercase text-center btn btn-subscribe">
+                            <button type="submit" name="submit" class="text-uppercase text-center btn btn-subscribe">Subscribe Now</button>
+                        
                         </form>
 
                     </aside>

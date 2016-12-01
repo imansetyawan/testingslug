@@ -8,7 +8,7 @@
     <!-- favicon icon -->
     <link rel="shortcut icon" href="{{ url('asset//dist2/images/') }}">
 
-    <title>{{ isset($title) ? $title : 'Portal Berita Kotha Pro' }}</title>
+    <title>{{ isset($title) ? $title : 'Portal Lite' }}</title>
 
     <!-- common css -->
     <link rel="stylesheet" href="{{ url('asset/dist2/css/bootstrap.min.css') }}">
@@ -28,7 +28,7 @@
     <![endif]-->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ url('asset/dist2/images/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{ url('asset/dist2/images/portal9.png')}}">
     <script type="text/javascript" src="{{ url('asset/dist2/js/jquery-1.11.3.min.js'  )}}"></script>
     <script type="text/javascript" src="{{ url('asset/dist2/js/bootstrap.min.js'  )}}"></script>
     <script type="text/javascript" src="{{ url('asset/dist2/js/owl.carousel.min.js'  )}}"></script>

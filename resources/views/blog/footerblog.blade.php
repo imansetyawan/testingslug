@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4">
                 <aside class="footer-widget">
-                    <div class="about-img"><img src="{{ url('asset/dist2/images/footer-logo.png')}}" alt="Kotha"></div>
+                    <div class="about-img"><img src="{{ url('asset/dist2/images/Portal8.png')}}" alt="Kotha"></div>
                     
                     <div class="address">
                         <h4 class="text-uppercase">contact Info</h4>
