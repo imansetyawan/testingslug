@@ -34,7 +34,7 @@ class BlogController extends Controller
     public function index()
     {
         $this->data['artikels'] = Artikel::orderBy('created_at', 'DESC')->paginate(8);
-        $this->data['title'] = 'Portal Berita Kotha Pro Malang';
+        $this->data['title'] = 'Portal Lite';
         return view('blog.indexblog', $this->data);
     }
 
@@ -130,7 +130,7 @@ class BlogController extends Controller
 
         Mail::send('blog.message',$this->data, function($m) {
             $m->from(Input::get('email'), 'Message Blog');
-            $m->to('imansetyawan33@gmail.com')
+            $m->to('blog10portal@gmail.com')
                 ->subject(Input::get('subject'));
         });
 

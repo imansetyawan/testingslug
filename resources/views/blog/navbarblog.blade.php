@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('get_blog') }}"><img src="{{ url('asset/dist2/images/logo.png')}}" alt=""></a>
+                <a class="navbar-brand" href="{{ route('get_blog') }}"><img src="{{ url('asset/dist2/images/Portal5.png')}}" alt=""></a>
             </div>
 
 
