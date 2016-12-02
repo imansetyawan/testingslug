@@ -36,15 +36,24 @@
                       <th>ID</th>
                       <th>Name</th>
                       <th>Email</th>
-                      <th>Group</th>
+                      <th>User</th>
+                      <th>Author</th>
+                      <th>Admin</th>
+                      <th></th>
                       <th>Menu</th>
                     </tr>
                      @foreach($users as $user)
                     <tr>
-                      <td>{{$user->id}}</td>
-                      <td>{{$user->name}}</td>
-                      <td>{{$user->email}}</td>
-                      <td>{{$user->role->name}}</td>
+                      <form action="{{ route('assign_roles') }}" method="post">
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}} <input type="hidden" name="email" value="{{ $user->email }}"></td>
+                        <td><input type="checkbox" name="role_user" {{ $user->hasRole('user') ? 'checked' : '' }}></td>
+                        <td><input type="checkbox" name="role_author" {{ $user->hasRole('author') ? 'checked' : '' }}></td>
+                        <td><input type="checkbox" name="role_admin" {{ $user->hasRole('admin') ? 'checked' : '' }}></td>
+                        {{ csrf_field() }}
+                        <td><button type="submit" class="btn btn-primary">Assign Role</button></td>
+                      </form>
                       <td><a href="{{ route('get_update_user', ['id' => $user->id]) }}"><button style="margin-right: 9px; padding-bottom: 0px; padding-top: 0px;" type="submit" class="btn btn-primary">Edit</button></a>
                       
                       <form id="myform" style="margin-left: 53px; margin-top: -23px;" class="" action="{{ route('get_delete_user', ['id' => $user->id]) }}" method="post">

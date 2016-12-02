@@ -9,7 +9,7 @@ class InfoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('rule:admin');
+        $this->middleware('roles:admin');
     }
 
     public function index()

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BuatTabelMessage extends Migration
+class CreateUserRoleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,11 @@ class BuatTabelMessage extends Migration
      */
     public function up()
     {
-        Schema::create('message', function (Blueprint $table) {
+        Schema::create('user_role', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('subject');
-            $table->string('message');
             $table->timestamps();
+            $table->integer('user_id');
+            $table->integer('role_id');
         });
     }
 
@@ -29,6 +27,6 @@ class BuatTabelMessage extends Migration
      */
     public function down()
     {
-        Schema::drop('message');
+        Schema::drop('user_role');
     }
 }

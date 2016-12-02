@@ -33,15 +33,7 @@
 		        	<input type="password" name="password_confirmation" class="form-control" placeholder="Retype Password">
 		        	<span class="glyphicon glyphicon-user form-control-feedback"></span>
 		        	{{($errors->has('password_confirmation')) ? $errors->first('password_confirmation') : ''}}
-		     </div>
-		     <label>Group</label>
-              <div class="form-group has-feedback">
-                  <select class="form-control select2" style="width: 100%;" name="roles_id">
-                  @foreach($roles as $value)
-                  <option value="{{ $value->id }}">{{ $value->name }}</option>
-                  @endforeach
-                  </select> 
-              </div> 		     
+		     </div>     
 		      <div class="row">
 		        <div class="col-xs-4">
 		          <input type="hidden" name="_token" value="{{ csrf_token() }}">

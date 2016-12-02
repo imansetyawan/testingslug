@@ -17,7 +17,7 @@
 			 </div>
 		     <label>Email</label>
 		     <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : ''}}">
-		        	<input type="email" name="email" value="{{$user->email}}" class="form-control" value="{{ Request::old('emal') }}" placeholder="Email">
+		        	<input type="email" name="email" value="{{$user->email}}" class="form-control" value="{{ Request::old('email') }}" placeholder="Email">
 		        	<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 		        	{{($errors->has('email')) ? $errors->first('email') : ''}}
 		     </div>
@@ -32,14 +32,6 @@
 		        	<input type="password" name="password_confirmation" value="{{$user->password}}" class="form-control" placeholder="Password">
 		        	<span class="glyphicon glyphicon-user form-control-feedback"></span>
 		     </div>
-		     <label>Group</label>
-              <div class="form-group has-feedback">
-                  <select class="form-control select2" style="width: 100%;" name="roles_id" value="{{$user->roles_id}}">
-                  @foreach($roles as $value)
-                  <option value="{{ $value->id }}">{{ $value->name }}</option>
-                  @endforeach
-                  </select> 
-              </div> 
 		      <div class="row">
 		        <div class="col-xs-4">
 		          <input type="hidden" name="_method" value="put">

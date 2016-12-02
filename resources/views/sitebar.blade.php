@@ -10,7 +10,7 @@
             <i class="fa fa-dashboard"></i> <span> Home</span>
           </a>
         </li>
-        @if(Auth::user()->roles_id == 2)
+        @if(Auth::user()->hasRole('admin'))
         <li class="">
           <a href="{{action('InfoController@index')}}">
             <i class="fa fa-info"></i> 
@@ -24,7 +24,8 @@
             <span> User</span>
           </a>
         </li>
-
+        @endif
+        @if(Auth::user()->hasRole('author') || Auth::user()->hasRole('admin'))
         <li class="treeview">
           <a href="{{ route('index_subscriber') }}">
             <i class="fa fa-users"></i>

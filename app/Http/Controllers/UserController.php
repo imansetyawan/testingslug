@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->middleware('rule:admin');
+        //$this->middleware('roles:admin');
     }
     
     public function index()
@@ -38,8 +38,7 @@ class UserController extends Controller
     public function create()
     {
         $user = User::all();
-        $roles = Role::all();
-        return view('user.insert', ['user' => $user, 'roles' => $roles]);
+        return view('user.insert', ['user' => $user]);
     }
 
     /**
@@ -60,8 +59,8 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->password = bcrypt($request->password);
         $user->email = $request->email;
-        $user->roles_id = $request->roles_id;
-        $user->save();
+        $user->save();        
+        $user->roles()->attach(Role::where('name', 'author')->first());
         return redirect()->route('index_user')->with('messageinsert','User sudah berhasil ditambahkan');
     }
 
@@ -85,8 +84,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $roles = Role::all();
-        return view('user.edit', ['user' => $user, 'roles' => $roles]);
+        return view('user.edit', ['user' => $user]);
     }
 
     /**
@@ -108,7 +106,6 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->password = bcrypt($request->password);
         $user->email = $request->email;
-        $user->roles_id = $request->roles_id;
         $user->save();
         return redirect()->route('index_user')->with('messageupdate','User sudah berhasil diubah');
     }
@@ -176,7 +173,6 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->email = $request->email;
         $user->confirmation_code = $confirmation_code;
-        $user->roles_id = '1';
 
         Mail::send('user.verify', ['confirmation_code' => $confirmation_code], function($m) {
             $m->from('blog@blog.com', 'AppBlog');
@@ -184,6 +180,7 @@ class UserController extends Controller
                 ->subject('Konfirmasi alamat email anda');
         });
         $user->save();
+        $user->roles()->attach(Role::where('name', 'user')->first());
         return redirect()->route('login')->with('messagesuccessregist','Please verify your account in email');
     }
 
@@ -259,6 +256,22 @@ class UserController extends Controller
             dd($user);
             
         }
+
+    public function postAssignRoles(Request $request)
+    {
+        $user = User::where('email', $request['email'])->first();
+        $user->roles()->detach();
+        if ($request['role_user']) {
+            $user->roles()->attach(Role::where('name', 'user')->first());
+        }
+        if ($request['role_author']) {
+            $user->roles()->attach(Role::where('name', 'author')->first());
+        }
+        if ($request['role_admin']) {
+            $user->roles()->attach(Role::where('name', 'admin')->first());
+        }
+        return redirect()->back();
+    }
 }
 
 

@@ -30,12 +30,36 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::put('app/indukkategori/edit/{id}', 'IndukController@update')->name('post_update_indukkategori');
 	Route::delete('app/indukkategori/delete/{id}', 'IndukController@destroy')->name('get_delete_indukkategori');
 
-	Route::get('app/user', 'UserController@index')->name('index_user');
-	Route::get('app/user/insert', 'UserController@create')->name('get_insert_user');
+	Route::get('app/user', [
+		'uses' => 'UserController@index',
+		'as' => 'index_user',
+		'middleware' => 'roles',
+		'roles' => ['admin']
+	]);
+	Route::get('app/user/insert', [
+		'uses' => 'UserController@create',
+		'as' => 'get_insert_user',
+		'middleware' => 'roles',
+		'roles' => ['admin']
+	]);
 	Route::post('app/user/insert', 'UserController@store')->name('post_insert_user');
-	Route::get('app/user/edit/{id}', 'UserController@edit')->name('get_update_user');
+	Route::get('app/user/edit/{id}', [
+		'uses' => 'UserController@edit',
+		'as' => 'get_update_user',
+		'middleware' => 'roles',
+		'roles' => ['admin']
+	]);
 	Route::put('app/user/edit/{id}', 'UserController@update')->name('post_update_user');
-	Route::delete('app/user/delete/{id}', 'UserController@destroy')->name('get_delete_user');
+	Route::delete('app/user/delete/{id}', [
+		'uses' => 'UserController@destroy',
+		'as' => 'get_delete_user',
+		'middleware' => 'roles',
+		'roles' => ['admin']
+	]);
+	Route::post('app/user/assign', [
+		'uses' => 'UserController@postAssignRoles',
+		'as' => 'assign_roles'
+	]);
 
 	Route::get('app/artikel', 'ArtikelController@index')->name('index_artikel');
 	Route::get('app/artikel/insert', 'ArtikelController@create')->name('get_insert_artikel');
