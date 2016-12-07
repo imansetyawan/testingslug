@@ -19,15 +19,15 @@ class ArtikelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     public function index()
     {
-        if(Auth::user()->roles_id == 2) {
-            $artikels = Artikel::orderBy('created_at', 'DESC')->paginate(10); 
+        if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('author')) {
+            $artikels = Artikel::orderBy('created_at', 'DESC')->paginate(10);
             return view('artikel.artikel', ['artikels' => $artikels]);
         }
         else {
-            $artikels = Artikel::orderBy('created_at', 'DESC')->where('user_id', '=', Auth::user()->id)->paginate(10); 
+            $artikels = Artikel::orderBy('created_at', 'DESC')->where('user_id', '=', Auth::user()->id)->paginate(10);
             return view('artikel.artikel', ['artikels' => $artikels]);
         }
     }
@@ -35,7 +35,7 @@ class ArtikelController extends Controller
     public function create()
     {
         $users = User::all();
-        $kategoris = Kategori::all(); 
+        $kategoris = Kategori::all();
         return view ('artikel.insertartikel', ['kategoris' => $kategoris, 'users' => $users]);
     }
 
@@ -68,7 +68,7 @@ class ArtikelController extends Controller
     }
         $artikels->save();
         return redirect()->route('index_artikel')->with('messageinsert','Artikel sudah berhasil ditambahkan');
-    
+
 
     }
 
@@ -87,7 +87,7 @@ class ArtikelController extends Controller
         $artikels = Artikel::find($id);
         $kategoris = Kategori::all();
         return view('artikel.editartikel', ['kategoris' => $kategoris, 'artikels' => $artikels]);
-        
+
     }
 
     public function update(Request $request, $id)
